@@ -65,9 +65,16 @@ The top of the script sets variables for things each `kallisto` run will use, in
 
 Type `kallisto quant` to see a description of each option and the syntax for running. Edit the command to use 100 bootstrap samples so we'll be able to more robustly identify differentially expressed genes (below). Describe any default parameters used in the methods section of your lab report.
 
-TODO kallisto instructions - make bash script for them to run for this. will take a while to run all 6 (~20 mins)
+You can run the script by:
+```
+./run_kallisto.sh 
+```
 
 This may take a while to run (~20 minutes). While you are waiting, move on to part 3 to visualize the RNA-seq data, which can be done independently of the `kallisto` run.
+
+<blockquote>
+**UNIX TIP**: TODO more on running bash scripts + executable permissions
+</blockquote>
 
 ## 3. Visualizing data using a genome-browser
 
