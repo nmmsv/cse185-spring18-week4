@@ -21,6 +21,9 @@
 * How comparable were the replicates? Which 2 tissues were most similar? Include a figure or table summarizing your pairiwse analysis of each RNA-seq dataset.
 * How many diffentially expressed transripts did you find? Include screenshots of several examples from IGV.
 
+### ChIP-seq analysis
+* Describe the signal you see for H3K4me1 and H3K27ac. Where do these marks tend to fall? In introns? beginning of genes? end of genes? Do they look different between the different samples? Hypothesize why. Similarly describe the PhyloP track.
+
 ## Discussion
 
 

@@ -156,5 +156,7 @@ This will output significant hits to `sleuth_results.tab`. How many significant 
 
 Take a look at the first couple examples. You'll notice the transcript ID is a big confusing number, e.g. "ENSMUST00000061745.4". To see what gene name that corresponds to, you can go to http://uswest.ensembl.org/Mus_musculus/Info/Index and use the search box in the upper right. For several top hits, find the gene name, navigate to that gene in IGV, and take screenshots to include in your lab report. What are the gene names for the top 10 genes? Be sure to include the gene Shh and the surrounding region in your examples. It should be close to the top of your list. We'll examine this locus in more detail on Thursday.
 
+Make sure you save your IGV session before you leave so you can load it when we start up again on Thursday.
+
 **That's it for today! Next time, we'll dig deeper into one of the differentially expressed genes and its regulatory regions. We'll analyze that region across many distantly related species to identify specfic candidate sequences likely to be involved in limb development.**
 
