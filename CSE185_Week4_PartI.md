@@ -57,8 +57,16 @@ Take a look at reads, for instance by doing `samtools view FL_Rep1_chr5.bam`. If
 
 ## 2. Visualizing data using a genome-browser
 
+Now we'd like to visualize these alignments to give help us visually see which genes might be differentially expressed between our samples. We'll do this statistically in section 4.
 
-make tdf (igvtools)
+For genomic DNA sequences, we previously used `samtools tview` to visualize alignments. This is great if we are looking at genetic variation in one sample, but is less helpful for visualizing *multiple samples* and *read abundances*. Today, we'll introduce a **genome browser** called the [Integrative Genomics Viewer](https://igv.org/), or IGV, which is developed by a team right here at UCSD! On Thursday we'll also use some features of a different genome browser run by UCSC.
+
+TODO: instructions for installing IGV on lab computers or on laptop
+
+After you launch IGV, you'll need to tell it which reference genome to use. In the top left, choose the genome-build you determined was used above. If you're not sure, ask your TA or friend before moving on since nothing will make sense in IGV if you're not using the right genome build!
+
+Take a moment to orient yourself with IGV. It is basically like a Google Maps for genomes! The top gives the names of each chromosome. The bottom track, labeled "Refseq genes" gives the names and coordinates for all annotated genes. Let's choose one to look at. Type "Nanog" in the search box at the top. This will zoom the view in on this gene. Notice how in the gene you can see the exon and intron structure. The little arrows in the introns point to the right, which means this gene is on the forward strand of the reference. Take a look at another gene (e.g. Sox5) to see a gene on the reverse strand. Drag your mouse over different coordinate windows to zoom in further until you can see actual DNA sequence at the bottom. 
+
 
 download+Open IGV and load tdf + ref genome
 
