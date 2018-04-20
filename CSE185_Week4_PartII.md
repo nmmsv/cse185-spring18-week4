@@ -7,8 +7,9 @@ analyze well known enhancer region ZRS
 human disease, limb develpoment
 today: look at putative enhancers nearby, analyze across species, determine motif/mechanism
 
-## 6. Zooming in on ZRS
+Lot of web tools rather than command line today. learn about resources/where to get data/vis tools. will publish commands we used to get a lot of these datasets for your info
 
+## 6. Loading more info to IGV
 Launch IGV and load the session you started last Tuesday. You should have already 6 tracks: 2 for each RNA-seq replicate of HL, FL, and MB. Additionally the default Refseq genes should be present at the bottom. We will be focusing today on the "Sonic hedgehog" region. In the search bar at the top, navigate to region chr5:28,278,817-29,447,265.
 
 We'd like to identify potential regulatory regions for the differentially expressed gene *Shh*. Our labmates have generated some ChIP-sequencing data that will be useful for identifying putative enhancers in this region. We'll start by adding the ChIP-seq datasets and some additional tracks to IGV to help us interpret some features of this region.
@@ -33,18 +34,21 @@ It's worth taking a second to go back to the table browser and see what kinds of
 
 Now go back to IGV and load the PhyloP file. What regions seem to have highest PhyloP scores? Are there any highly conserved regions that are not protein-coding? Hypothesize what those might correspond to. Include a brief description of what you observe in your lab report.
 
+## 7. Zooming in on ZRS
 
-## 7. Multiple sequence alignment of enhancer sequences
+Use IGV to zoom in on region chr5:29,314,718-29,315,770. This region corresponds to the ZRS (Zone of polarizing activity regulatory sequence, also called MFCS1) which is one of the most deeply studied mammalian enhancer sequences known to regulate the *Shh* gene. Take note of the histone modification and conservation patterns at this locus. Is it well conserved across species? Based on the histone modifications, for which tissues does this look like a putative enhancer region? Take a screen shot of this region and include it in your lab report.
+
+## 8. Multiple sequence alignment of enhancer sequences
 
 mafft for MSA
 mafft --auto ../../public/week4/zrs_sequences_evgeny.fa > zrs_sequences_msa.fa
 visualize with MVIEW https://www.ebi.ac.uk/Tools/msa/mview/
 
-## 8. Motif analysis 
+## 9. Motif analysis 
 FIMO on the mouse sequence
 what motif corresponds to the missing region
 
-## 9. For your lab report
+## 10. For your lab report
 
 <blockquote>
 **UNIX TIP**: template
