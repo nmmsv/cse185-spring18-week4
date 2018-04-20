@@ -73,16 +73,14 @@ You can run the script by:
 This may take a while to run (~20 minutes). While you are waiting, move on to part 3 to visualize the RNA-seq data, which can be done independently of the `kallisto` run.
 
 <blockquote>
-**UNIX TIP**: TODO more on running bash scripts + executable permissions
+**UNIX TIP**: TODO more on running bash scripts + executable permissions. maybe someone wants to fill this in :)
 </blockquote>
 
 ## 3. Visualizing data using a genome-browser
 
 Now we'd like to visualize these alignments to give help us visually see which genes might be differentially expressed between our samples. We'll do this statistically in section 4.
 
-For genomic DNA sequences, we previously used `samtools tview` to visualize alignments. This is great if we are looking at genetic variation in one sample, but is less helpful for visualizing *multiple samples* and *read abundances*. Today, we'll introduce a **genome browser** called the [Integrative Genomics Viewer](https://igv.org/), or IGV, which is developed by a team right here at UCSD! On Thursday we'll also use some features of a different genome browser run by UCSC.
-
-TODO: instructions for installing IGV on lab computers or on laptop
+For genomic DNA sequences, we previously used `samtools tview` to visualize alignments. This is great if we are looking at genetic variation in one sample, but is less helpful for visualizing *multiple samples* and *read abundances*. Today, we'll introduce a **genome browser** called the [Integrative Genomics Viewer](https://igv.org/), or IGV, which is developed by a team right here at UCSD! On Thursday we'll also use some features of a different genome browser run by UCSC. Follow the instructions on the IGV site to install it on your desktop.
 
 After you launch IGV, you'll need to tell it which reference genome to use. In the top left, choose the genome-build you determined was used above. If you're not sure, ask your TA or friend before moving on since nothing will make sense in IGV if you're not using the right genome build!
 
@@ -160,8 +158,3 @@ Take a look at the first couple examples. You'll notice the transcript ID is a b
 
 **That's it for today! Next time, we'll dig deeper into one of the differentially expressed genes and its regulatory regions. We'll analyze that region across many distantly related species to identify specfic candidate sequences likely to be involved in limb development.**
 
-
-TODO how to get R running. Maybe get sleuth pre-installed for everyone?
-TODO also get biomaRt installed
-TODO: looks like samples HL_Rep1 and FL_Rep2 are swapped in SRA...
-go back and rename these files to reflect...
