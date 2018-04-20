@@ -30,7 +30,7 @@ First, take a look at the fastq files. **Do not unzip them!** See the UNIX tip b
 **UNIX TIP**: Using a compression method like `gzip` or `bgzip` can save tons of space when dealing with huge files. Gzipped files aren't directrly human-readable. However, you can use the `zcat` command to write the contents of the file to standard output. For instance, to see the head of a gzipped file, you can do `zcat file.gz | head`. You can similarly pipe the output of `zcat` to other commands like `wc`.
 </blockquote>
 
-Run `fastqc` on the fastq files. You do not need to include the figures in your lab report, although you should keep track of the output `html` files. Comment on anything flagged as problematic in the methods section of your report.
+Run `fastqc` on the fastq files. You do not need to include the figures in your lab report, although you should keep track of the output `html` files. Comment on anything flagged as problematic in the methods section of your report. See if you can find an explanation in the fastqc help online about whether the flags you see are specific to RNA-seq datasets.
 
 ## 2. RNA-seq sequence alignment
 
@@ -55,7 +55,21 @@ Take a look at reads, for instance by doing `samtools view FL_Rep1_chr5.bam`. If
 **UNIX TIP**: `less` is really helpful for looking at and scrolling through files. A helpful way to visualize a sam file is to run `samtools view file.bam | less -S`. The `-S` parameter tells the terminal not to wrap lines, and instead allow you to scroll through long lines horizontally. This makes files with long lines much more readable. Another trick: once you're looking at a file using `less`, you can use `ctrl-v` to scroll down more quickly than using the down button.
 </blockquote>
 
-## 2. Visualizing data using a genome-browser
+## 2. Quantifying gene expressiom
+
+We'll first want to use the RNA-sequencing data to quantify expression of each gene. For this, we'll use a tool called `kallisto` (https://pachterlab.github.io/kallisto/). This is an extremely fast method to quantify transcript abundance. It's main speedup over competing methods is to avoid the alignment step altogether and use a much simpler kmer counting approach based on our old friend from last week: the De Brujn graph! Kallisto will take in our fastq files and output estimated "transcripts per million reads" (TPM) values for each transcript.
+
+To help you get started running `kallisto`, you should find a bash script `run_kallisto.sh` in the Github repository for this week under the `scripts` folder. First take a look at this script to familiarize yourself with what it's doing.
+
+The top of the script sets variables for things each `kallisto` run will use, inclusing the gene annotation (GTF) file and kallisto index (`mm10_kallisto`). The `for` loop loops through each replicate of each experiment and does a separate `kallisto` job.
+
+Type `kallisto quant` to see a description of each option and the syntax for running. Edit the command to use 100 bootstrap samples so we'll be able to more robustly identify differentially expressed genes (below). Describe any default parameters used in the methods section of your lab report.
+
+TODO kallisto instructions - make bash script for them to run for this. will take a while to run all 6 (~20 mins)
+
+This may take a while to run (~20 minutes). While you are waiting, move on to part 3 to visualize the RNA-seq data, which can be done independently of the `kallisto` run.
+
+## 3. Visualizing data using a genome-browser
 
 Now we'd like to visualize these alignments to give help us visually see which genes might be differentially expressed between our samples. We'll do this statistically in section 4.
 
@@ -71,13 +85,17 @@ Now we'd like to load our sequence alignments. While IGV can directly visualize 
 
 Navigate to a gene. A good one is "chr3:29,939,546-30,023,181" (the gene Mecom). Note that the RNA-seq tracks have very "spiky" coverage. Some regions have tons of reads and others are flat. Note how that compares to the structure of the gene annotated on the bottom. As expected, the "spikes" correspond to reads from exons, since intron and intergenic sequences generally aren't sequenced in our RNA-seq experiment. Also note how while FL and HL expression is quite high at this gene, MB looks like it has very little coverage in this region, suggesting Mecom is not highly expressed there. Scroll around to some other genes.
 
-## 3. Quantifying gene expressiom
+<blockquote>
+**IGV TIP**: To avoid having to reload all the files you're visualizing each time you open and close IGV, you can save a "session", which will keep track of all the files, settings, etc. that you were using before. Go to 
+</blockquote>
 
-kallisto (do for rest of replicates, make them do 2 of them (1 HL, MB)
+<blockquote>
+**IGV TIP**: To make things easier to visualize, you can color each track. For instance, I found it helpful to make the two replicates of each tissue type a different color. Right click on the name of the track at the left and choose "Change track color".
+</blockquote>
 
-compare replicates (pairwise r2 of everyone)
 
 ## 4. Differential expression analysis
+compare replicates (pairwise r2 of everyone)
 run sleuth in R
 
 ## 5. Global changes in gene expression
