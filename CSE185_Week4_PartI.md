@@ -67,14 +67,9 @@ After you launch IGV, you'll need to tell it which reference genome to use. In t
 
 Take a moment to orient yourself with IGV. It is basically like a Google Maps for genomes! The top gives the names of each chromosome. The bottom track, labeled "Refseq genes" gives the names and coordinates for all annotated genes. Let's choose one to look at. Type "Nanog" in the search box at the top. This will zoom the view in on this gene. Notice how in the gene you can see the exon and intron structure. The little arrows in the introns point to the right, which means this gene is on the forward strand of the reference. Take a look at another gene (e.g. Sox5) to see a gene on the reverse strand. Drag your mouse over different coordinate windows to zoom in further until you can see actual DNA sequence at the bottom. 
 
+Now we'd like to load our sequence alignments. While IGV can directly visualize BAM files, it is usually easier to visualize "counts" instead in the form of `.tdf` files. These give read counts per position (i.e. coverage) which can give us an idea of the abundance of each gene. `igvtools` was already used to create `.tdf` files for you (from the entire genome, not just chromosome 5) in the `week4` directory. Use `scp` to download these to your desktop so we can load them to IGV. From IGV, select "File->Load from File" and select the 6 tdf files to upload.
 
-download+Open IGV and load tdf + ref genome
-
-look at the region from above with "N"s there. see that it's at a splice site
-
-look at example region (MECOM locus from paper)
-see differential expression across samples
-
+Navigate to a gene. A good one is "chr3:29,939,546-30,023,181" (the gene Mecom). Note that the RNA-seq tracks have very "spiky" coverage. Some regions have tons of reads and others are flat. Note how that compares to the structure of the gene annotated on the bottom. As expected, the "spikes" correspond to reads from exons, since intron and intergenic sequences generally aren't sequenced in our RNA-seq experiment. Also note how while FL and HL expression is quite high at this gene, MB looks like it has very little coverage in this region, suggesting Mecom is not highly expressed there. Scroll around to some other genes.
 
 ## 3. Quantifying gene expressiom
 
