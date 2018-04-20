@@ -100,13 +100,68 @@ Navigate to a gene. A good one is "chr3:29,939,546-30,023,181" (the gene Mecom).
 **IGV TIP**: To make things easier to visualize, you can color each track. For instance, I found it helpful to make the two replicates of each tissue type a different color. Right click on the name of the track at the left and choose "Change track color".
 </blockquote>
 
+## 4. Comparing overall expression patterns across datasets
 
-## 4. Differential expression analysis
-compare replicates (pairwise r2 of everyone)
-run sleuth in R
+First take a look at the `kallisto` output. You should have one directory for each experiment. For example take a look at the directory `FL_Rep1` where you should see the following files:
+* `abundance.tsv`: a tab separated file giving the "TPM" values for each transcript
+* `abundance.h5`: this is in a binary format (h5) that gives the bootstrap values. If you want to view this file you can use `kallisto h5dump`
+* `run_info.json`: gives information about the parameters used to run kallisto
 
-## 5. Global changes in gene expression
-convert to gene names
-identify top ones
-heatmap + GO Analysis?
+We'd like to do some sanity checks on our data. In general, we'd like to see how reproducible our results are per tissue by comparing replicates. We'd also like to do an overall comparison between tissue types. To get a rough idea of concordance between datasets, let's calculate the pairwise correlation between each one. While you could use python or R to do this, we'll use UNIX commands here for practice and since it faster to set up.
 
+Run the following command to compute the Pearson correlation between the TPM values in both replicates of FL:
+```
+paste FL_Rep1/abundance.tsv FL_Rep2/abundance.tsv | cut -f 5,10 | grep -v tpm | awk '(!($1==0 && $2==0))' | datamash ppearson 1:2
+```
+
+Let's break apart this line since it introduces some new commands:
+* `paste`: is a useful command to horizontally concatenate two files. Since each `abundance.tsv` file has genes in the same order, we can `paste` them together to get one big file with results from the replicates side by side.
+* `cut`: is our old friend. It extracts columns 5 and 10 (which contain the two TPM columns after doing `paste`)
+* We use `awk` to filter further. What does the above `awk` command do? When you present the results be sure to mention this step.
+* `datamash` is used to calculate correlation between columns 1 and 2. See `datamash --help` for more info.
+
+Repeat this for each pairwise analysis of all the 6 `kallisto` results. Present the results as a table or a heatmap. Which tissues were most similar? Most different? How concordant were the replicates? Are replicates more concordant with each other than with other tissues?
+
+## 5. Differential expression analysis
+
+Now we'll use [sleuth](https://pachterlab.github.io/sleuth) to identify differentially expressed genes. We'll need to use R for this. To open the R environment, type:
+
+```
+R
+```
+
+The following code will run sleuth:
+```R
+library("sleuth")
+sample_id = c("FL_Rep1","FL_Rep2","HL_Rep1","HL_Rep2","MB_Rep1","MB_Rep2")
+kal_dirs = file.path(sample_id)
+
+# Load metadata
+s2c = read.table(file.path("exp_info.txt"), header = TRUE, stringsAsFactors=FALSE)
+s2c = dplyr::mutate(s2c, path = kal_dirs)
+
+# Create sleuth object
+so = sleuth_prep(s2c, extra_bootstrap_summary = TRUE)
+
+# Fit each model and test
+so = sleuth_fit(so, ~condition, 'full')
+so = sleuth_fit(so, ~1, 'reduced')
+so = sleuth_lrt(so, 'reduced', 'full')
+
+# Get output, write results to file
+sleuth_table <- sleuth_results(so, 'reduced:full', 'lrt', show_all = FALSE)
+sleuth_significant <- dplyr::filter(sleuth_table, qval <= 0.05)
+write.table(sleuth_significant, "sleuth_results.tab", sep="\t", quote=FALSE)
+```
+
+This will output significant hits to `sleuth_results.tab`. How many significant transcripts are there? Include the results in your lab report.
+
+Take a look at the first couple examples. You'll notice the transcript ID is a big confusing number, e.g. "ENSMUST00000061745.4". To see what gene name that corresponds to, you can go to http://uswest.ensembl.org/Mus_musculus/Info/Index and use the search box in the upper right. For several top hits, find the gene name, navigate to that gene in IGV, and take screenshots to include in your lab report. What are the gene names for the top 10 genes? Be sure to include the gene Shh and the surrounding region in your examples. It should be close to the top of your list. We'll examine this locus in more detail on Thursday.
+
+**That's it for today! Next time, we'll dig deeper into one of the differentially expressed genes and its regulatory regions. We'll analyze that region across many distantly related species to identify specfic candidate sequences likely to be involved in limb development.**
+
+
+TODO how to get R running. Maybe get sleuth pre-installed for everyone?
+TODO also get biomaRt installed
+TODO: looks like samples HL_Rep1 and FL_Rep2 are swapped in SRA...
+go back and rename these files to reflect...
