@@ -34,9 +34,6 @@ It's worth taking a second to go back to the table browser and see what kinds of
 
 Now go back to IGV and load the PhyloP file. What regions seem to have highest PhyloP scores? Are there any highly conserved regions that are not protein-coding? Hypothesize what those might correspond to. Include a brief description of what you observe in your lab report.
 
-
-TODO: make them use liftover + get the bedgraph from bigwig
-
 ## 7. Zooming in on ZRS
 
 Use IGV to zoom in on region chr5:29,314,718-29,315,770. This region corresponds to the ZRS (Zone of polarizing activity regulatory sequence, also called MFCS1) which is one of the most deeply studied mammalian enhancer sequences known to regulate the *Shh* gene. Take note of the histone modification and conservation patterns at this locus. Is it well conserved across species? Based on the histone modifications, for which tissues does this look like a putative enhancer region? Take a screen shot of this region and include it as well as a description in your lab report.
@@ -57,12 +54,18 @@ will produce a (not very colorful) html file to visualize the MSA. Play around w
 
 Do you notice any regions that are conserved in all species except snakes? Take a screenshot of those regions.
 
-## 9. Motif analysis 
-FIMO on the mouse sequence
-what motif corresponds to the missing region
+You should be able to find at least one region that is deleted in all snakes but conserved across all other species. Extract that region plus surrounding sequence (extract ~20-30bp total) from the mouse ZRS sequence.
+
+## 9. Motif analysis
+You hypothesize that the region deleted in snakes might be forming a binding site for a transcription factor that binds to this enhancer. To find out what might be binding there, we can use the `fimo` tool to scan our sequence for any matching motifs. Make a fasta file `mouse_del_region.fa` with the 20-30bp extracted above and run `fimo` to scan for motifs:
+
+```
+fimo ../../public/week4/motif_databases/MOUSE/HOCOMOCOv11_full_MOUSE_mono_meme_format.meme mouse_del_region.fa
+```
+This file scans for motifs in the HOCOMOCO mouse database in the `public/week4` directory. This will create a folder `fimo_out`. Look at the file `fimo_out/fimo.txt` to find motifs with significant matches.
+
+You will likely have many hits. Probably not all of these transcription factors are actually bound to the DNA at this region. For example, many of the top factors are not even expressed in any of the cell types we analyzed here.  Do you have any hypotheses about which factors are most relevant, or what further experiments or analyses could be done to determine which if any of these factors is relevant? Include this in the discusson of your lab report.
 
 ## 10. For your lab report
 
-<blockquote>
-**UNIX TIP**: template
-</blockquote>
+For this week's lab report, there are specific prompts and instructions included in the template document in the `labreports` folder. Each section lists how many points it will be worth, so be sure to complete all the items listed there.
