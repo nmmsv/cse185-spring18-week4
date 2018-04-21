@@ -34,15 +34,28 @@ It's worth taking a second to go back to the table browser and see what kinds of
 
 Now go back to IGV and load the PhyloP file. What regions seem to have highest PhyloP scores? Are there any highly conserved regions that are not protein-coding? Hypothesize what those might correspond to. Include a brief description of what you observe in your lab report.
 
+
+TODO: make them use liftover + get the bedgraph from bigwig
+
 ## 7. Zooming in on ZRS
 
-Use IGV to zoom in on region chr5:29,314,718-29,315,770. This region corresponds to the ZRS (Zone of polarizing activity regulatory sequence, also called MFCS1) which is one of the most deeply studied mammalian enhancer sequences known to regulate the *Shh* gene. Take note of the histone modification and conservation patterns at this locus. Is it well conserved across species? Based on the histone modifications, for which tissues does this look like a putative enhancer region? Take a screen shot of this region and include it in your lab report.
+Use IGV to zoom in on region chr5:29,314,718-29,315,770. This region corresponds to the ZRS (Zone of polarizing activity regulatory sequence, also called MFCS1) which is one of the most deeply studied mammalian enhancer sequences known to regulate the *Shh* gene. Take note of the histone modification and conservation patterns at this locus. Is it well conserved across species? Based on the histone modifications, for which tissues does this look like a putative enhancer region? Take a screen shot of this region and include it as well as a description in your lab report.
 
 ## 8. Multiple sequence alignment of enhancer sequences
 
-mafft for MSA
-mafft --auto ../../public/week4/zrs_sequences_evgeny.fa > zrs_sequences_msa.fa
-visualize with MVIEW https://www.ebi.ac.uk/Tools/msa/mview/
+After discussing with your labmates and reading about the ZRS enhancer, you're convinced this is likely an important region involved in limb development. You also recall that the PhyloP scores shoewd this region is highly conserved. To study how this region differs across species with and without limbs, you look for regions similar to the mouse ZRS in other organisms. Remarkably, you are able to identify similar regions in human, mouse, cow, dolphin (with limbs) and python, rattlesnake, cobra, and boa (snakes without limbs). These are all collected in the file `zrs_sequences.fa` in the `public/week4` folder.
+
+`cat` this fasta file to look at sequences. Each fasta header line gives more info on which genome build and coordinates each region was taken from.
+
+We'd first like to perform multiple sequence alignment (MSA) to see exactly how similar these regions are across species. For that, we'll use the `mafft` tool. Type `mafft --help` at the command line to see usage information for this tool. It should take a fasta file of sequences as input and produce a similar fasta file with the MSA as output. Examine the output file. What do the "-" characters mean?
+
+Now, we will use the Mview tool to visualize the alignment. You can either do this using the web version at https://www.ebi.ac.uk/Tools/msa/mview/ or using the command line `mview` tool. Type `mview --help` to see full usage details. The following command:
+```
+mview -html full my_msa.fa > my_msa.html
+```
+will produce a (not very colorful) html file to visualize the MSA. Play around with the options to make the plot nicer and more colorful. Visualize the resulting html file in your web browser.
+
+Do you notice any regions that are conserved in all species except snakes? Take a screenshot of those regions.
 
 ## 9. Motif analysis 
 FIMO on the mouse sequence
