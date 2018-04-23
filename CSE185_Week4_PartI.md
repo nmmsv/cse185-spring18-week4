@@ -18,9 +18,9 @@ git clone https://github.com/cse185-sp18/cse185-week4-<username>.git week4
 
 Data for this week can be found in the `public/week4` directory. Among other things, you can find fastq files for our RNA-sequencing experiments there:
 
-* Forelimb: `FL_Rep1_chr5_*.fq.gz`, `FL_Rep2_chr5_1.fq.gz` 
-* Hindlimb: `HL_Rep1_chr5_*.fq.gz`, `HL_Rep2_chr5_1.fq.gz` 
-* Midbrain: `ML_Rep1_chr5_*.fq.gz`, `ML_Rep2_chr5_1.fq.gz` 
+* Forelimb: `FL_Rep1_chr5_1.fq.gz`, `FL_Rep2_chr5_2.fq.gz` 
+* Hindlimb: `HL_Rep1_chr5_1.fq.gz`, `HL_Rep2_chr5_2.fq.gz` 
+* Midbrain: `MB_Rep1_chr5_1.fq.gz`, `MB_Rep2_chr5_2.fq.gz` 
 
 (Note: these reads have been downsampled from the original experiment to only contain chromosome 5)
 
