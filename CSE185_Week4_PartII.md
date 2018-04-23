@@ -20,7 +20,7 @@ First take a look at where these marks (H3K27ac and H3K4me1) are falling. Are th
 
 Before moving on, let's add one additional track to IGV about sequence conservation. For this, we'll load the PhyloP track, which gives a per-base pair measure of sequence conservation across species (see Wednesday slides). You can get the PhyloP track from the genome.ucsc.edu (another genome browser! which you can load tracks to similar to IGV.). As part of the genome browser, UCSC hosts many different "tracks" of information for many different genome builds. If you are ever looking for information on any sort of genomic annotation (e.g. gene annotations, conservation, genetic variation, and more), UCSC is a good place to start.
 
-Use the Table Browser (`Tools>Table Brwoser`) to download the PhyloP track for our region of interest. From the home page, select "Tools->Table Browser". use the dropdown boxes to select the mouse mm10 genome build. Additionally choose the following options:
+Use the Table Browser (`Tools > Table Browser`) to download the PhyloP track for our region of interest. From the home page, select "Tools->Table Browser". use the dropdown boxes to select the mouse mm10 genome build. Additionally choose the following options:
 * Group: Comparative Genomics
 * Track: Conservation
 * Table: 60 Vert. Cons (phyloP60wayAll)
