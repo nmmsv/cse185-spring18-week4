@@ -70,7 +70,7 @@ You can run the script by:
 ./run_kallisto.sh 
 ```
 
-This may take a while to run (~20 minutes). While you are waiting, move on to part 3 to visualize the RNA-seq data, which can be done independently of the `kallisto` run.
+This may take a while to run (~20 minutes). While you are waiting, move on to part 4 to visualize the RNA-seq data, which can be done independently of the `kallisto` run.
 
 <blockquote>
 **UNIX TIP**: TODO more on running bash scripts + executable permissions. maybe someone wants to fill this in :)
