@@ -73,7 +73,10 @@ You can run the script by:
 This may take a while to run (~20 minutes). While you are waiting, move on to part 4 to visualize the RNA-seq data, which can be done independently of the `kallisto` run.
 
 <blockquote>
-**UNIX TIP**: TODO more on running bash scripts + executable permissions. maybe someone wants to fill this in :)
+**UNIX TIP**: To run your bash scripts as executables, you need to change the access premissions of the file to allow execution. To do so, use the following command:
+  
+  `chmod +x sample.sh `
+Alternatively, you can run a non-executable bash script with `bash sample.sh` command.
 </blockquote>
 
 ## 4. Visualizing data using a genome-browser
