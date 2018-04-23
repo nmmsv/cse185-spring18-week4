@@ -40,7 +40,7 @@ Use IGV to zoom in on region chr5:29,314,718-29,315,770. This region corresponds
 
 ## 8. Multiple sequence alignment of enhancer sequences
 
-After discussing with your labmates and reading about the ZRS enhancer, you're convinced this is likely an important region involved in limb development. You also recall that the PhyloP scores shoewd this region is highly conserved. To study how this region differs across species with and without limbs, you look for regions similar to the mouse ZRS in other organisms. Remarkably, you are able to identify similar regions in human, mouse, cow, dolphin (with limbs) and python, rattlesnake, cobra, and boa (snakes without limbs). These are all collected in the file `zrs_sequences.fa` in the `public/week4` folder.
+After discussing with your labmates and reading about the ZRS enhancer, you're convinced this is likely an important region involved in limb development. You also recall that the PhyloP scores showed this region is highly conserved. To study how this region differs across species with and without limbs, you look for regions similar to the mouse ZRS in other organisms. Remarkably, you are able to identify similar regions in human, mouse, cow, dolphin (with limbs) and python, rattlesnake, cobra, and boa (snakes without limbs). These are all collected in the file `zrs_sequences.fa` in the `public/week4` folder.
 
 `cat` this fasta file to look at sequences. Each fasta header line gives more info on which genome build and coordinates each region was taken from.
 
