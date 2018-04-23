@@ -9,7 +9,7 @@ today: look at putative enhancers nearby, analyze across species, determine moti
 
 Lot of web tools rather than command line today. learn about resources/where to get data/vis tools. will publish commands we used to get a lot of these datasets for your info
 
-## 6. Loading more info to IGV
+## 7. Loading more info to IGV
 Launch IGV and load the session you started last Tuesday. You should have already 6 tracks: 2 for each RNA-seq replicate of HL, FL, and MB. Additionally the default Refseq genes should be present at the bottom. We will be focusing today on the "Sonic hedgehog" region. In the search bar at the top, navigate to region chr5:28,278,817-29,447,265.
 
 We'd like to identify potential regulatory regions for the differentially expressed gene *Shh*. Our labmates have generated some ChIP-sequencing data that will be useful for identifying putative enhancers in this region. We'll start by adding the ChIP-seq datasets and some additional tracks to IGV to help us interpret some features of this region.
@@ -34,7 +34,7 @@ It's worth taking a second to go back to the table browser and see what kinds of
 
 Now go back to IGV and load the PhyloP file. What regions seem to have highest PhyloP scores? Are there any highly conserved regions that are not protein-coding? Hypothesize what those might correspond to. Include a brief description of what you observe in your lab report.
 
-## 7. Zooming in on ZRS
+## 8. Zooming in on ZRS
 
 Use IGV to zoom in on region chr5:29,314,718-29,315,770. This region corresponds to the ZRS (Zone of polarizing activity regulatory sequence, also called MFCS1) which is one of the most deeply studied mammalian enhancer sequences known to regulate the *Shh* gene. Take note of the histone modification and conservation patterns at this locus. Is it well conserved across species? Based on the histone modifications, for which tissues does this look like a putative enhancer region? Take a screen shot of this region and include it as well as a description in your lab report.
 
