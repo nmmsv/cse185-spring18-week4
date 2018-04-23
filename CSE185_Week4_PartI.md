@@ -55,7 +55,7 @@ Take a look at reads, for instance by doing `samtools view FL_Rep1_chr5.bam`. If
 **UNIX TIP**: `less` is really helpful for looking at and scrolling through files. A helpful way to visualize a sam file is to run `samtools view file.bam | less -S`. The `-S` parameter tells the terminal not to wrap lines, and instead allow you to scroll through long lines horizontally. This makes files with long lines much more readable. Another trick: once you're looking at a file using `less`, you can use `ctrl-v` to scroll down more quickly than using the down button.
 </blockquote>
 
-## 2. Quantifying gene expressiom
+## 3. Quantifying gene expressiom
 
 We'll first want to use the RNA-sequencing data to quantify expression of each gene. For this, we'll use a tool called `kallisto` (https://pachterlab.github.io/kallisto/). This is an extremely fast method to quantify transcript abundance. It's main speedup over competing methods is to avoid the alignment step altogether and use a much simpler kmer counting approach based on our old friend from last week: the De Brujn graph! Kallisto will take in our fastq files and output estimated "transcripts per million reads" (TPM) values for each transcript.
 
@@ -76,7 +76,7 @@ This may take a while to run (~20 minutes). While you are waiting, move on to pa
 **UNIX TIP**: TODO more on running bash scripts + executable permissions. maybe someone wants to fill this in :)
 </blockquote>
 
-## 3. Visualizing data using a genome-browser
+## 4. Visualizing data using a genome-browser
 
 Now we'd like to visualize these alignments to give help us visually see which genes might be differentially expressed between our samples. We'll do this statistically in section 4.
 
@@ -98,7 +98,7 @@ Navigate to a gene. A good one is "chr3:29,939,546-30,023,181" (the gene Mecom).
 **IGV TIP**: To make things easier to visualize, you can color each track. For instance, I found it helpful to make the two replicates of each tissue type a different color. Right click on the name of the track at the left and choose "Change track color".
 </blockquote>
 
-## 4. Comparing overall expression patterns across datasets
+## 5. Comparing overall expression patterns across datasets
 
 First take a look at the `kallisto` output. You should have one directory for each experiment. For example take a look at the directory `FL_Rep1` where you should see the following files:
 * `abundance.tsv`: a tab separated file giving the "TPM" values for each transcript
@@ -120,7 +120,7 @@ Let's break apart this line since it introduces some new commands:
 
 Repeat this for each pairwise analysis of all the 6 `kallisto` results. Present the results as a table or a heatmap. Which tissues were most similar? Most different? How concordant were the replicates? Are replicates more concordant with each other than with other tissues?
 
-## 5. Differential expression analysis
+## 6. Differential expression analysis
 
 Now we'll use [sleuth](https://pachterlab.github.io/sleuth) to identify differentially expressed genes. We'll need to use R for this. To open the R environment, type:
 
