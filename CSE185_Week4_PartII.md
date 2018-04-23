@@ -18,9 +18,9 @@ In the `public/week4` directory, you'll find (bedGraph)[https://genome.ucsc.edu/
 
 First take a look at where these marks (H3K27ac and H3K4me1) are falling. Are they near gene regions? Beginning or ends of genes? Other places? Discuss this in the results section of your lab report.
 
-Before moving on, let's add one additional track to IGV about sequence conservation. For this, we'll load the PhyloP track, which gives a per-base pair measure of sequence conservation across species (see Wednesday slides). You can get the PhyloP track from the genome.ucsd.edu (another genome browser! which you can load tracks to similar to IGV.). As part of the genome browser, UCSC hosts many different "tracks" of information for many different genome builds. If you are ever looking for information on any sort of genomic annotation (e.g. gene annotations, conservation, genetic variation, and more), UCSC is a good place to start.
+Before moving on, let's add one additional track to IGV about sequence conservation. For this, we'll load the PhyloP track, which gives a per-base pair measure of sequence conservation across species (see Wednesday slides). You can get the PhyloP track from the genome.ucsc.edu (another genome browser! which you can load tracks to similar to IGV.). As part of the genome browser, UCSC hosts many different "tracks" of information for many different genome builds. If you are ever looking for information on any sort of genomic annotation (e.g. gene annotations, conservation, genetic variation, and more), UCSC is a good place to start.
 
-Use the table browser to download the PhyloP track for our region of interest. From the home page, select "Tools->Table Browser". use the dropdown boxes to select the mouse mm10 genome build. Additionally choose the following options:
+Use the Table Browser (`Tools>Table Brwoser`) to download the PhyloP track for our region of interest. From the home page, select "Tools->Table Browser". use the dropdown boxes to select the mouse mm10 genome build. Additionally choose the following options:
 * Group: Comparative Genomics
 * Track: Conservation
 * Table: 60 Vert. Cons (phyloP60wayAll)
@@ -28,7 +28,7 @@ Use the table browser to download the PhyloP track for our region of interest. F
 * Filter: edit and select "Limit data output to" 10 million lines otherwise the output will be truncated
 * Output format: custom track
 * Output file: put a reasonable filename (e.g. `phyloP60wayAll_mm10_Shh_region.wig`)
-After you click "submit" make sure "DATA VALUE" is selected on the next page, then click "Get custom track in file" which will download the file to your computer's default download location.
+After you click "get output" make sure "DATA VALUE" is selected on the next page, then click "Get custom track in file" which will download the file to your computer's default download location.
 
 It's worth taking a second to go back to the table browser and see what kinds of info can be downloaded from here. It is a really flexible tool for a huge number of published genome-wide data tracks!
 
