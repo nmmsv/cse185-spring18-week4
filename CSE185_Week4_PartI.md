@@ -76,7 +76,8 @@ This may take a while to run (~20 minutes). While you are waiting, move on to pa
 **UNIX TIP**: To run your bash scripts as executables, you need to change the access premissions of the file to allow execution. To do so, use the following command:
   
   `chmod +x sample.sh `
-  
+
+You can now run your script as an executable: `./sample.sh`.
 Alternatively, you can run a non-executable bash script with `bash sample.sh` command.
 </blockquote>
 
